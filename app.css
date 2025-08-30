@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: aliceblue;
+    font: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+body{
+    background-color: rgb(22, 22, 22);
+    padding: .6rem;
+}
+
+.logo{
+    font-size: 1rem;
+    margin-right: 1vw;
+}
+
+header{
+display: flex;
+align-items: center;
+justify-content: space-around;
+border: 0.2px solid blue;
+padding: 1rem;
+}
+
+header>ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.menu{
+    display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.main-content{
+display: flex;
+margin-top: 2vh;
+}
+
+.link-overview{
+
+    height: 70vh;
+    width: 40vw;
+    background-color: gray;
+    padding: .3rem;
+}
+
+.collapse{
+    font-size: 3rem;
+    font-weight: 500;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    
+    background-color: black;
+
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+.content-section{
+
+    height: 70vh;
+    width: 100%;
+    /* background-color: blue; */
+}
+
+
+
+
+@media (max-width: 768px) {
+    .logo{
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .menu{
+        display: block;
+        font-size: 1.5rem;
+        border: 3px solid red;
+        box-shadow: 3px 2px  2px blue;
+    }
+    
+    .mobile-version-menu{
+    margin-left: 15rem;
+    margin-top: 2rem;
+    
+}
+.mobile-version-menu>ul{
+    list-style: none; 
+    gap: 5px;
+    }
+.mobile-version-menu>ul>li{
+    margin: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid blue;
+    padding: .5rem;
+}
+
+  header>ul{
+    display: none;
+  }
+    
+
+}
