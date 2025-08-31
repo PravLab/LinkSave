@@ -1,115 +1,320 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: aliceblue;
-    font: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: aliceblue;
+  font: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
-body{
-    background-color: rgb(22, 22, 22);
-    padding: .6rem;
+body {
+  background-color: rgb(22, 22, 22);
+  padding: 0.6rem;
+  /* user-select: none; */
 }
 
-.logo{
-    font-size: 1rem;
-    margin-right: 1vw;
+.logo {
+  font-size: 1rem;
+  margin-right: 1vw;
 }
 
-header{
-display: flex;
-align-items: center;
-justify-content: space-around;
-border: 0.2px solid blue;
-padding: 1rem;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 0.2px solid blue;
+  padding: 1rem;
 }
 
-header>ul{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 1.5rem;
+header > ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.5rem;
 }
 
-.menu{
-    display: none;
+.menu {
+  display: none;
 }
 
 .hidden {
   display: none;
 }
 
-
-.main-content{
-display: flex;
-margin-top: 2vh;
+.visible {
+  display: block;
 }
 
-.link-overview{
-
-    height: 70vh;
-    width: 40vw;
-    background-color: gray;
-    padding: .3rem;
+.main-content {
+  display: flex;
+  margin-top: 2vh;
 }
 
-.collapse{
-    font-size: 3rem;
-    font-weight: 500;
-    margin-left: 1rem;
-    margin-top: 2rem;
-    
-    background-color: black;
-
-    border: 1px solid red;
-    cursor: pointer;
+.link-overview-section {
+  height: 80vh;
+  /* width: 35vw; */
 }
 
-.content-section{
+.link-overview {
+  height: 80vh;
+  width: 35vw;
+  background-color: gray;
+  margin-top: 0.1rem;
+  padding: 0.3rem;
+  display: none;
+}
 
-    height: 70vh;
-    width: 100%;
-    /* background-color: blue; */
+.collapse {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-left: 1rem;
+  margin-top: 0.1rem;
+  width: 3.5vw;
+  background-color: black;
+
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+.collapse-off {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-left: 1rem;
+  margin-top: 0.2rem;
+
+  background-color: black;
+
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+.content-section {
+  height: 80vh;
+  width: 100%;
+  /* background-color: blue; */
+}
+
+.add-link-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: green;
+  /* color: black; */
+  height: 5vh;
+  width: 9vw;
+  padding: 2px;
+  position: relative;
+  top: 70vh;
+  /* left: 82vw; */
+  right: 5vw;
+  border-radius: 20px;
+  border: 3px solid black;
+  box-shadow: 2px 3px rgb(214, 214, 214);
+  cursor: pointer;
+}
+
+.add-link-container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  height: 70vh;
+  width: 60vw;
+  /* background-color: red; */
+  gap: 1.6rem;
+}
+
+.input-box {
+  height: 4vh;
+  width: 30vw;
+  background-color: black;
+  outline: none;
+  border: 1px solid green;
+  font-size: medium;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.input-box:focus {
+  border-color: green; /* highlight color */
+  box-shadow: 0 0 11px green;
+}
+
+.add-link-container > textarea {
+  height: 79px;
+  width: 429px;
+  font-size: medium;
+  background-color: black;
+  border: 0.2px solid green;
+  border-radius: 5px;
+  padding: 1rem;
+  font-weight: bold;
+  outline: none;
+}
+
+.add-link-container > textarea:focus {
+  box-shadow: 0 0 8px green;
+}
+
+.add-link-container > button {
+  background-color: black;
+  padding: 1rem;
+  font-size: medium;
+  font-weight: bold;
+  border: 0.2px solid;
+  border-radius: 8px;
+  box-shadow: 0 0 7px white;
+  color: gray;
+}
+
+.add-link-container > label {
+  font-size: medium;
+  font-weight: bold;
+  color: rgb(119, 144, 113);
+}
+
+.error {
+  color: red;
+  display: none;
+}
+
+.saved-message {
+  display: none;
+  color: black;
+  height: 10vh;
+  width: 10vh;
+  font-weight: bold;
+  margin-top: 10px;
+  background-color: green;
+}
+
+
+.all-links{
+  
 }
 
 
 
+
+
+
+footer {
+  height: 20vh;
+  /* background-color: rgb(36, 36, 164); */
+  border: 1px solid green;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+footer > p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.copyright {
+  margin-top: 1.5rem;
+  color: rgba(255, 9, 210, 0.842);
+}
 
 @media (max-width: 768px) {
-    .logo{
-        font-size: 1.5rem;
-        font-weight: bold;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    .menu{
-        display: block;
-        font-size: 1.5rem;
-        border: 3px solid red;
-        box-shadow: 3px 2px  2px blue;
-    }
-    
-    .mobile-version-menu{
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .menu {
+    display: block;
+    font-size: 1.5rem;
+    border: 3px solid red;
+    box-shadow: 3px 2px 2px blue;
+  }
+
+  .mobile-version-menu {
     margin-left: 15rem;
     margin-top: 2rem;
-    
-}
-.mobile-version-menu>ul{
-    list-style: none; 
+  }
+  .mobile-version-menu > ul {
+    list-style: none;
     gap: 5px;
-    }
-.mobile-version-menu>ul>li{
+  }
+  .mobile-version-menu > ul > li {
     margin: 6px;
     font-size: 1rem;
     font-weight: bold;
     border: 1px solid blue;
-    padding: .5rem;
-}
+    padding: 0.5rem;
+  }
 
-  header>ul{
+  header > ul {
     display: none;
   }
-    
+
+
+  .collapse{
+    font-size: 2rem;
+    width: 8vw;
+  }
+
+  .add-link-btn{
+    width: 30vw;
+    height: 6vh;
+    padding: 2px;
+    font-size:1.2rem;
+  }
+
+
+  .add-link-container{
+    /* background-color: red; */
+    height: 70vh;
+    width: 100%;
+  }
+
+  .input-box{
+    height: 6vh;
+    width: 70vw;
+    font-size: .8rem;
+  }
+
+  .add-link-container>textarea{
+    width: 70vw;
+  }
+
+
+
+
+
+
+  footer {
+  height: 37vh;
+  /* background-color: rgb(36, 36, 164); */
+  border: 1px solid green;
+  margin-top: 1rem;
+  padding: 1rem;
+  /* gap: 20px; */
+}
+
+footer > p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.copyright {
+  margin-top: 1.9rem;
+  color: rgba(255, 9, 210, 0.842);
+  font-size: 1rem;
+}
 
 }
