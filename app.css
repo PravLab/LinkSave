@@ -33,6 +33,34 @@ header > ul {
   gap: 1.5rem;
 }
 
+nav{
+  /* background-color: ; */
+  margin-top: 1rem;
+  height: 5vh;
+  width: 100%;
+  
+}
+
+nav>ul{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+nav>ul>li{
+  
+  border: 1px solid green;
+  border-radius: 20px;
+  padding: 0.3rem ;
+}
+nav>ul>li>a{
+
+  text-decoration: none;
+}
+
 .menu {
   display: none;
 }
@@ -62,6 +90,29 @@ header > ul {
   margin-top: 0.1rem;
   padding: 0.3rem;
   display: none;
+  
+}
+.link-overview>ul{
+  list-style: none;
+  /* background-color: red; */
+  height: 76vh;
+  width: 100%;
+  padding: 3rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link-overview>ul>li{
+  height: 7vh;
+  background-color: blue;
+  margin-top: 1rem;
+  font-size: 2.3rem;
+  font-weight: bold;
+  text-align: center;
+
+}
+.link-overview>ul>li>a{
+  text-decoration: none;
 }
 
 .collapse {
@@ -91,6 +142,7 @@ header > ul {
 .content-section {
   height: 80vh;
   width: 100%;
+  overflow-y: auto;
   /* background-color: blue; */
 }
 
@@ -196,9 +248,79 @@ header > ul {
 
 
 .all-links{
+  /* background-color: red; */
+  margin-top: 1.4rem;
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
   
 }
 
+.link-box{
+  background-color: rgb(29, 25, 43);
+  gap: 1rem;
+  height: 18vh;
+  width: 80vw;
+  font-size: 1.2rem;
+  text-align: center;
+  /* overflow-y: scroll; */
+  
+  
+  color: black;
+}
+
+.link-box>p{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+ 
+}
+
+
+#allCategory{
+background-color: red;
+}
+
+
+
+
+.link-overview {
+  height: 80vh;
+  width: 100%;
+  background-color: gray;
+  margin-top: 0.1rem;
+  padding: 0.3rem;
+  display: none;
+  
+}
+.link-overview>ul{
+  list-style: none;
+  /* background-color: red; */
+  height: 76vh;
+  width: 100%;
+  padding: 3rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link-overview>ul>li{
+  height: 3vh;
+  background-color: blue;
+  margin-top: 1rem;
+  font-size: 2.3rem;
+  font-weight: bold;
+  text-align: center;
+
+}
+.link-overview>ul>li>a{
+  text-decoration: none;
+}
 
 
 

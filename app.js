@@ -3,31 +3,38 @@ const menuBar = document.getElementById("menuBar");
 const menuMobileVersion = document.getElementById("menuMobileVersion");
 const linkOverview = document.getElementById("linkOverview");
 const collapseOverview = document.getElementById("collapseOverview");
-const collapseOff = document.getElementById("collapseOff");
 const addLink = document.querySelector(".add-link-btn");
 const contentSection = document.querySelector(".content-section");
 const inputBox = document.querySelectorAll(".input-box");
+const allCategory = document.querySelector("allCategory");
 
 menuBar.addEventListener("click", () => {
   menuMobileVersion.innerHTML = `
    <ul id="menuItems">
-            <li>About</li>
-            <li>contact us</li>
+   <li>About</li>
+   <li>contact us</li>
             <li>How to use?</li>
             </ul>`;
-
+            
             menuMobileVersion.classList.toggle("hidden");
 });
 
 collapseOverview.addEventListener("click", () => {
   collapseOverview.style.display = "none";
   linkOverview.style.display = "block";
+  linkOverview.innerHTML =`<ul>
+  <span class="collapse-off" id="collapseOff">&#8676;</span>
+  ${categoryName.map(item=>`<li ><a  href="">${item}</a></li>`).join("")}
+  </ul>`
+  
+  const collapseOff = document.getElementById("collapseOff");
+
+        collapseOff.addEventListener("click", () => {
+            linkOverview.style.display = "none";
+          collapseOverview.style.display = "block";
+        });
 });
 
-collapseOff.addEventListener("click", () => {
-    linkOverview.style.display = "none";
-  collapseOverview.style.display = "block";
-});
 
 
 
@@ -88,7 +95,7 @@ addLink.addEventListener("click", () => {
                 
                 localStorage.setItem("allData",JSON.stringify(allData));
 
-                
+   
                 
                 
                 document.querySelector(".add-link-container").style.display="none"
@@ -115,9 +122,22 @@ console.log(savedData)
 
 savedData.map((item, index) => {
  contentSection.innerHTML+=`<div class="all-links">
+ <div class="link-box">
     <h1>${item.category}</h1>
     <p>${item.comment}</p>
     <a href="${item.link}" target="_blank">${item.link}</a>
   </div>
+  </div>
  `
 });
+
+
+
+const categoryName = [...new Set(savedData.map(item => item.category))];
+console.log(categoryName)
+
+let category = document.getElementById("navCategory");
+
+
+
+
