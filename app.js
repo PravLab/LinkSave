@@ -19,21 +19,108 @@ menuBar.addEventListener("click", () => {
             menuMobileVersion.classList.toggle("hidden");
 });
 
+
+
 collapseOverview.addEventListener("click", () => {
   collapseOverview.style.display = "none";
   linkOverview.style.display = "block";
-  linkOverview.innerHTML =`<ul>
+  
+  renderCategories();
+
+
+  addLink.style.display ="none";
+  linkOverview.innerHTML =`
+  
+  <div >
+  
   <span class="collapse-off" id="collapseOff">&#8676;</span>
-  ${categoryName.map(item=>`<li ><a  href="">${item}</a></li>`).join("")}
+  </div>
+  <ul>
+  ${categoryName.map(item=>`<li ><a class="category-link" data-category="${item}" href="#">${item}</a>
+</li>`).join("")}
   </ul>`
   
   const collapseOff = document.getElementById("collapseOff");
 
         collapseOff.addEventListener("click", () => {
             linkOverview.style.display = "none";
+  addLink.style.display ="block";
+
           collapseOverview.style.display = "block";
         });
+
+
+         document.querySelectorAll(".category-link").forEach(link=>{
+          link.addEventListener("click",(e)=>{
+            e.preventDefault();
+            const clickedCategory = e.target.dataset.category;
+  addLink.style.display ="block";
+           
+            const filteredLinks = savedData.filter(item => item.category === clickedCategory);
+
+      // show results inside contentSection
+      contentSection.innerHTML = `
+        <h2>${clickedCategory}</h2>
+        ${filteredLinks.map(item => `
+          <div class="link-box">
+            <p class="comment-text">${item.comment}</p>
+            <a href="${item.link}" target="_blank">${item.link}</a>
+          </div>
+        `).join("")}
+      `;
+
+          linkOverview.style.display = "none";
+    collapseOverview.style.display = "block";
+          })
+         })
 });
+
+
+function renderAllData() {
+  const savedData = JSON.parse(localStorage.getItem("allData")) || [];
+  contentSection.innerHTML = "";
+  savedData.forEach(item => {
+    contentSection.innerHTML += `
+      <div class="all-links">
+        <div class="link-box">
+          <h1>${item.category}</h1>
+          <p>${item.comment}</p>
+          <a href="${item.link}" target="_blank">${item.link}</a>
+        </div>
+      </div>`;
+  });
+}
+
+function renderCategories() {
+  const savedData = JSON.parse(localStorage.getItem("allData")) || [];
+  const categoryName = [...new Set(savedData.map(item => item.category))];
+
+  linkOverview.innerHTML = `
+    <ul>
+      <span class="collapse-off" id="collapseOff">&#8676;</span>
+      ${categoryName.map(item => `
+        <li><a class="category-link" data-category="${item}" href="/">${item}</a></li>
+      `).join("")}
+    </ul>`;
+
+  // re-bind click events
+  document.querySelectorAll(".category-link").forEach(link=>{
+    link.addEventListener("click",(e)=>{
+      e.preventDefault();
+      const clickedCategory = e.target.dataset.category;
+      const filteredLinks = savedData.filter(item => item.category === clickedCategory);
+
+      contentSection.innerHTML = `
+        <h2>${clickedCategory}</h2>
+        ${filteredLinks.map(item => `
+          <div class="link-box">
+            <p>${item.comment}</p>
+            <a href="${item.link}" target="_blank">${item.link}</a>
+          </div>`).join("")}
+      `;
+    });
+  });
+}
 
 
 
@@ -96,7 +183,8 @@ addLink.addEventListener("click", () => {
                 localStorage.setItem("allData",JSON.stringify(allData));
 
    
-                
+                 renderAllData();
+  renderCategories();
                 
                 document.querySelector(".add-link-container").style.display="none"
                  
